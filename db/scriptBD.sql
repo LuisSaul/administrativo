@@ -1,11 +1,12 @@
+drop database if exists Administrativos;
 create database Administrativos;
 use Administrativos;
 
 create table Usuario(
-	idUsuario int primary key auto_increment,
-	nombre varchar(30) not null,
-    contraseña varchar(30) not null,
-    rol tinyint
+	id int primary key auto_increment,
+	user varchar(30) not null,
+    password varchar(30) not null,
+    type tinyint
 );
 
 create table Solicitante(
@@ -21,4 +22,4 @@ create table Solicitante(
     idUsuario int
 );
 
-alter table Solicitante  add foreign key (idUsuario) references Usuario(idUsuario);
+alter table Solicitante  add foreign key (idUsuario) references Usuario(id);

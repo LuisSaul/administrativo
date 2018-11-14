@@ -1,0 +1,25 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title> Administrativos </title>
+    <link rel="stylesheet" href="../lib/bootstrap.css">
+    <link rel="stylesheet" href="../lib/animate.css">
+    <link rel="stylesheet" href="../css/global.css">
+</head>
+
+<body>
+    <div class="container-fluid mt-3">
+        <h1 class="text-center"> Administrador </h1>
+        <div class="row">
+            <div class="col" id="table-container">
+                <!-- Table -->
+            </div>
+        </div>
+    </div>
+    <script src="../lib/popper.js"></script>
+    <script src="../lib/jquery.js"></script>
+    <script src="../lib/bootstrap.js"></script>
+    <script src="../js/usuarios.js"></script>
+</body>
+
+</html>

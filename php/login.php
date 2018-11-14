@@ -1,16 +1,20 @@
 <?php
-    include "../db/conexion.php";
-    $usuario = $_POST["usuario"];
+    include "conexion.php";
+    $usuario = $_POST["user"];
     $pass = $_POST["password"];
     $conexion = connect();
 
-    $query = "select * from Usuario where nombre = $usuario and contraseña = $pass";
+    $query = "select * from Usuario where user = '$usuario' and password = '$pass'";
+    echo $query;
+    $result = [];
     if(($result = $conexion->query($query)) !== false){
         $result = $result->fetch_assoc();
         session_start();
-        $_SESSION['idUsuario'] = $result['idUsuario'];
-        $_SESSION['nombre'] = $result['nombre'];
-        $_SESSION['password'] = $result['contraseña'];
-        $_SESSION['rol'] = $result['rol'];
+        $_SESSION['id'] = $result['USERID'];
+        $_SESSION['user'] = $result['USER'];
+        $_SESSION['password'] = $result['PASSWORD'];
+        $_SESSION['type'] = $result['TYPE'];
     }
+    $conexion->close();
+    echo json_encode( $result );
 ?>

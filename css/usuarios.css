@@ -1,0 +1,7 @@
+tr.editable{
+    background: #eee;
+}
+
+th::focus{
+    border: 2px solid #217ff345;
+}

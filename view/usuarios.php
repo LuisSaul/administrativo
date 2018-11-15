@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="../lib/bootstrap.css">
     <link rel="stylesheet" href="../lib/animate.css">
     <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/usuarios.css">
 </head>
 
 <body>

@@ -46,13 +46,12 @@ function createTable(config, data){
             save = $("<button>",{ class:"btn btn-success   ", html: 'Guardar',});
 
         edit.click( (event) => {
-            let row = $(event.target).parent().parent().parent();
+            let row = $(event.target).parent().parent().parent();            
             let rowFields = row.find('[data-label]');
-            let editable = row.attr('data-editable') == true;
-            console.log( row, editable )
-
-            row.attr('data-editable', true);
-            rowFields.attr('contenteditable', row.attr('data-editable'));
+            let editable = (row.attr('data-editable') == "true");
+            row.attr('data-editable', !editable)
+            row.toggleClass('editable');
+            rowFields.attr("contenteditable", !editable);
         });
         
         tr.append($("<td>",{ 

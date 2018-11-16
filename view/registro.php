@@ -17,6 +17,12 @@
         <div class="nuevo-usuarior row">
             <div class="col">
                 <h3 class="text-center">Registro nuevo usuario</h3>
+                <div id="success" class="alert alert-success" role="alert" hidden>
+                    Usuario registrado con exito
+                </div>
+                <div id="error" class="alert alert-danger" role="alert" hidden>
+                    Ocurrió un error inesperado
+                </div>
                 <div class="form-group">
                     <label>Nombre</label>
                     <input type="email" name="user" class="form-control" placeholder="Nombre">
@@ -28,11 +34,12 @@
                 <button type="button" id="btn-nuevo-usuario" class="btn btn-primary">Crear nuevo usuario</button>
             </div>
         </div>
+        
     </div>
     <script src="../lib/popper.js"></script>
     <script src="../lib/jquery.js"></script>
     <script src="../lib/bootstrap.js"></script>
-    <script src="../js/registro.js"></script>
+    <script src="../js/registerUsuario.js"></script>
 </body>
 
 </html>

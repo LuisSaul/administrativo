@@ -5,7 +5,6 @@
     $conexion = connect();
 
     $query = "select * from Usuario where user = '$usuario' and password = '$pass'";
-    echo $query;
     $result = [];
     if(($result = $conexion->query($query)) !== false){
         $result = $result->fetch_assoc();

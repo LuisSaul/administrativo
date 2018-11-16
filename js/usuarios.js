@@ -7,7 +7,9 @@ $.ajax({
     dataType: 'json',
     success: ( response ) => {
         console.log( response );
-        createTable({target: '#table-container'}, response)
+        if( response.length > 0 ){
+            createTable({target: '#table-container'}, response)
+        }
     }, failure: ( error ) => {
         console.error('error inesperado');
     }
@@ -47,13 +49,36 @@ function createTable(config, data){
 
         edit.click( (event) => {
             let row = $(event.target).parent().parent().parent();            
-            let rowFields = row.find('[data-label]');
+            let rowFields = row.find('td:not([data-label=ID])');
             let editable = (row.attr('data-editable') == "true");
             row.attr('data-editable', !editable)
             row.toggleClass('editable');
             rowFields.attr("contenteditable", !editable);
         });
         
+        del.click( (event)=> {
+            let row = $(event.target).parent().parent().parent();
+            $.ajax({
+                url: '../php/deleteUsuario.php',
+                method: 'GET',
+                data: {
+                    id: row.attr('data-id-usuario')
+                },
+                success: ( response ) => {
+                    console.log( response );
+                    row.remove();
+                },
+                failure: ( error ) => {
+                    console.error( error );
+                }
+            })
+        });
+
+        save.click( (event) => {
+
+        });
+
+
         tr.append($("<td>",{ 
             html: $('<div>', {
                 class: 'btn-group btn-group-sm',

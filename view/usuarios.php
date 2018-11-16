@@ -12,6 +12,13 @@
     <div class="container-fluid mt-3">
         <h1 class="text-center"> Administrador </h1>
         <div class="row">
+            <div class="col">
+                <a href="./registro.php">
+                    <button class="btn btn-primary m-3"> Registrar nuevo usuario </button>
+                </a>
+            </div>
+        </div>
+        <div class="row">
             <div class="col" id="table-container">
                 <!-- Table -->
             </div>

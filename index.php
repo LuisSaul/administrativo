@@ -23,6 +23,9 @@
           <label>Password:</label>
           <input class="form-control text-center" name="password" type="password">
         </div>
+        <div id="error" class="alert alert-danger" role="alert" hidden>
+          Usuario o contraseña incorrecta
+        </div>
         <button id="login" type="submit" class="btn btn-primary">Log in</button>
       </div>
     </div>

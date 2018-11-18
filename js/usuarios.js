@@ -15,6 +15,19 @@ $.ajax({
     }
 });
 
+$.ajax({
+    url: '../php/getUsuariosSinRegistro.php',
+    dataType: 'json',
+    success: ( response ) => {
+        console.log( response );
+        if( response.length > 0 ){
+            createTableUsuarios({target: '#table-container-users'}, response)
+        }
+    }, failure: ( error ) => {
+        console.error('error inesperado');
+    }
+});
+
 
 function createTable(config, data){
     const element = $(config.target);    
@@ -49,10 +62,12 @@ function createTable(config, data){
 
         edit.click( (event) => {
             let row = $(event.target).parent().parent().parent();            
-            let rowFields = row.find('td:not([data-label=ID])');
+            let rowFields = row.find('td:not(td[data-label=Nickname], td[data-label=ID])');
             let editable = (row.attr('data-editable') == "true");
             row.attr('data-editable', !editable)
             row.toggleClass('editable');
+
+
             rowFields.attr("contenteditable", !editable);
         });
         
@@ -75,7 +90,33 @@ function createTable(config, data){
         });
 
         save.click( (event) => {
-
+            let row = $(event.target).parent().parent().parent();
+            if(row.attr('data-editable') == "true"){
+                let rowFields = row.find('td[data-label]:not(td[data-label=Nickname], td[data-label=ID])');
+                $.ajax({
+                    url: '../php/updateUsuario.php',
+                    method: 'POST',
+                    data:{
+                        nombre : rowFields[0].innerHTML,
+                        apellidoPat : rowFields[1].innerHTML,
+                        apellidoMat : rowFields[2].innerHTML,
+                        estado_civil : (rowFields[3].innerHTML == 'Soltero')? 0 : 1,
+                        direccion : rowFields[4].innerHTML,
+                        email : rowFields[5].innerHTML,
+                        telefono : rowFields[6].innerHTML,
+                        id: row.attr('data-id-usuario')
+                    },
+                    success: ( response ) => {
+                        console.log( response );
+                        showMsg('msgSuccess');
+                        edit.click();
+                    },
+                    failure: ( error ) => {
+                        showMsg('msgError');
+                        console.error( error );
+                    }
+                });
+            }
         });
 
 
@@ -95,3 +136,47 @@ function createTable(config, data){
 }
 
 
+function createTableUsuarios(config, data){
+    const element = $(config.target);    
+    const headers = Object.keys(data[0]);    
+
+    const table = $('<table>',{
+        class: 'table',
+        'data-objet': 'Table',
+        html: []
+    });
+    const th = $('<thead>', {
+        class: 'thead-dark',
+        html: []
+    });
+    const tb = $('<tbody>');
+
+
+    headers.forEach((element, index) => {
+        th.append($("<th>", {html: element}));
+    });
+    
+    data.forEach((row, index) => {
+        const tr = $("<tr>");
+        for(const property in row){
+            tr.append($("<td>",{
+                html: row[property],'data-label':property
+            }));
+        }
+        tb.append(tr);
+    });
+
+    table.append(th).append(tb);   
+    element.empty().append(table);
+    return table;
+}
+
+
+function showMsg( id ){
+    let element = $('#'+id);
+    element.toggle('hidden');
+
+    setTimeout(( ) => {
+        element.toggle('hidden');
+    }, 3000);
+}

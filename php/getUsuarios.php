@@ -6,7 +6,8 @@
                 u.id as ID,
                  u.user as Nickname,
                  s.nombre as Nombre,
-                 concat(s.apellidoPat,' ', s.apellidoMat) as Apellido,
+                 apellidoPat as 'Apellido Paterno',
+                 s.apellidoMat as 'Apellido Materno',
                  case s.estado_civil 
                     when 0 then 'Soltero'
                     when 1 then 'Cadado'

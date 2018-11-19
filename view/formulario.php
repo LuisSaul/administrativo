@@ -82,6 +82,7 @@
                   <button id="alta" type="button">Dar de alta</button>
                </li>
             </ul>
+            <h1 id = "valido"></h1>
          </form>
       </div>
       <script src="../lib/popper.js"></script>

@@ -56,7 +56,8 @@ button.click( ( event ) => {
             direccion : direccion.val(),
             email : email.val(),
             fecha_registro : fechaRegistro.val(),
-            telefono : telefono.val()
+            telefono : telefono.val(),
+            id: $('form').attr('data-usuario')
         },
         success: ( response ) => {
             console.log( response );

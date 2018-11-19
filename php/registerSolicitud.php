@@ -10,6 +10,7 @@
     $email = $_POST['email'];
     $fecha_registro = $_POST['fecha_registro'];
     $telefono = $_POST['telefono'];
+    $id = $_POST['id'];
 
 
     $query = "insert into Solicitante
@@ -23,8 +24,8 @@
             '$email', 
             '$telefono', 
             '$fecha_registro', 
-            2
+            $id
         );";
-    query( $conexion, $query ); 
+    echo $conexion->query( $query ); 
     $conexion->close();
 ?>

@@ -84,6 +84,14 @@
             </ul>
             <h1 id = "valido"></h1>
          </form>
+         
+      </div>
+      <div class="container-fluid">
+        <div class="row mb-5">
+          <div class="col-6 offset-3">
+          <div id="tabla-usuarios"></div>
+          </div>
+        </div>
       </div>
       <script src="../lib/popper.js"></script>
       <script src="../lib/jquery.js"></script>

@@ -10,40 +10,6 @@ let telefono = $('#telefono');
 let button = $('button#alta');
 let valores = $('#valido');
 
-$.ajax({
-    url: '../php/getSolicitud.php',
-    method: 'GET',
-    dataType: 'JSON',
-    data: {
-        id: $('#formulario').attr('data-usuario')
-    },
-    success: (response) => {
-        if (response.length > 0) {
-            let solicitud = response[0];
-            nombre.val(solicitud.nombre);
-            nombre.attr("disabled", true);
-            apellidoPat.val(solicitud.apellidoPat);
-            apellidoPat.attr("disabled", true);
-            apellidoMat.val(solicitud.apellidoMat);
-            apellidoMat.attr("disabled", true);
-            estadoCivil.val(solicitud.estado_civil);
-            estadoCivil.attr("disabled", true);
-            direccion.val(solicitud.direccion);
-            direccion.attr("disabled", true);
-            email.val(solicitud.email);
-            email.attr("disabled", true);
-            fechaRegistro.val(solicitud.fecha_registro)
-            fechaRegistro.attr("disabled", true);
-            telefono.val(solicitud.telefono);
-            telefono.attr("disabled", true);
-            button.remove();
-        }
-    },
-    failure: (error) => {
-        console.error(error);
-    }
-});
-
 
 button.click((event) => {
     if (nombre.val() != "" && apellidoPat.val() != "" && apellidoMat.val() != "" && direccion.val() != "" && email.val() != "" && telefono.val() != "") {
@@ -85,3 +51,55 @@ button.click((event) => {
         console.log("Datos incompletos");
     }
 });
+
+
+
+$.ajax({
+    url: '../php/getUsuarios.php',
+    dataType: 'json',
+    success: ( response ) => {
+        console.log( response );
+        if( response.length > 0 ){
+            createTableUsuarios({target: '#tabla-usuarios'}, response)
+        }
+    }, failure: ( error ) => {
+        console.error('error inesperado');
+    }
+});
+
+
+
+function createTableUsuarios(config, data){
+    const element = $(config.target);    
+    const headers = Object.keys(data[0]);    
+
+    const table = $('<table>',{
+        class: 'table',
+        'data-objet': 'Table',
+        html: []
+    });
+    const th = $('<thead>', {
+        class: 'thead-dark',
+        html: []
+    });
+    const tb = $('<tbody>');
+
+
+    headers.forEach((element, index) => {
+        th.append($("<th>", {html: element}));
+    });
+    
+    data.forEach((row, index) => {
+        const tr = $("<tr>");
+        for(const property in row){
+            tr.append($("<td>",{
+                html: row[property],'data-label':property
+            }));
+        }
+        tb.append(tr);
+    });
+
+    table.append(th).append(tb);   
+    element.empty().append(table);
+    return table;
+}

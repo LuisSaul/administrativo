@@ -1,5 +1,8 @@
-.body{    
-    background: black;   
+body {   
+    animation-name: bg;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
 }
 
 .login{
@@ -8,10 +11,18 @@
 
 .login > div{  
   margin: auto;
-  color: white;
+  color: black;
   border: 3px solid white;
   padding: 75px 25px 75px 25px;
-  background: rgba(0,0,0,.5);
-  border-radius: 15px;
-  
+  background: rgba(255,255,255,.5);
+  border-radius: 15px; 
+}
+
+
+@keyframes bg{
+    0%, 100%{ background: #C70039; }
+    20%{ background: #900C3E; }
+    40%{ background: #571845; }
+    60%{ background: #FFC300; }
+    80%{ background: #C90438; }    
 }

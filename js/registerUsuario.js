@@ -4,7 +4,7 @@ let password  = $('input[name=password]');
 
 btn.click( ( event ) => {
     $.ajax({
-        url: '../php/registerUsuario.php',
+        url: '../php/Usuario.php',
         method: 'POST',
         data: {
             user: user.val(),

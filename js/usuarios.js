@@ -3,7 +3,8 @@ let contenedor = $('#table-container');
 
 
 $.ajax({
-    url: '../php/getUsuarios.php',
+    url: '../php/Solicitante.php',
+    method: 'GET',
     dataType: 'json',
     success: ( response ) => {
         console.log( response );
@@ -16,7 +17,8 @@ $.ajax({
 });
 
 $.ajax({
-    url: '../php/getUsuariosSinRegistro.php',
+    url: '../php/Usuario.php',
+    method: 'GET',
     dataType: 'json',
     success: ( response ) => {
         console.log( response );
@@ -34,7 +36,7 @@ function createTable(config, data){
     const headers = Object.keys(data[0]);    
 
     const table = $('<table>',{
-        class: 'table',
+        class: 'table table-sm table-hover',
         'data-objet': 'Table',
         html: []
     });
@@ -141,7 +143,7 @@ function createTableUsuarios(config, data){
     const headers = Object.keys(data[0]);    
 
     const table = $('<table>',{
-        class: 'table',
+        class: 'table table-sm table-hover',
         'data-objet': 'Table',
         html: []
     });

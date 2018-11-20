@@ -3,7 +3,7 @@
 
     $conexion = connect();
     $query = "select 
-                u.id as ID,
+                s.id_solicitante as ID,
                  u.user as Nickname,
                  s.nombre as Nombre,
                  apellidoPat as 'Apellido Paterno',

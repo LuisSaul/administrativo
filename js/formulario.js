@@ -44,7 +44,6 @@ $.ajax({
     }
 });
 
-
 button.click((event) => {
     if (nombre.val() != "" && apellidoPat.val() != "" && apellidoMat.val() != "" && direccion.val() != "" && email.val() != "" && telefono.val() != "") {
         const erNombre = /^([A-ZÁÉÍÓÚÑ]{1}[a-zñáéíóúñ]+[\s]*)+$/;
@@ -85,3 +84,55 @@ button.click((event) => {
         console.log("Datos incompletos");
     }
 });
+
+
+
+$.ajax({
+    url: '../php/getUsuarios.php',
+    dataType: 'json',
+    success: ( response ) => {
+        console.log( response );
+        if( response.length > 0 ){
+            createTableUsuarios({target: '#tabla-usuarios'}, response)
+        }
+    }, failure: ( error ) => {
+        console.error('error inesperado');
+    }
+});
+
+
+
+function createTableUsuarios(config, data){
+    const element = $(config.target);    
+    const headers = Object.keys(data[0]);    
+
+    const table = $('<table>',{
+        class: 'table',
+        'data-objet': 'Table',
+        html: []
+    });
+    const th = $('<thead>', {
+        class: 'thead-dark',
+        html: []
+    });
+    const tb = $('<tbody>');
+
+
+    headers.forEach((element, index) => {
+        th.append($("<th>", {html: element}));
+    });
+    
+    data.forEach((row, index) => {
+        const tr = $("<tr>");
+        for(const property in row){
+            tr.append($("<td>",{
+                html: row[property],'data-label':property
+            }));
+        }
+        tb.append(tr);
+    });
+
+    table.append(th).append(tb);   
+    element.empty().append(table);
+    return table;
+}

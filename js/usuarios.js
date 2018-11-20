@@ -76,11 +76,8 @@ function createTable(config, data){
         del.click( (event)=> {
             let row = $(event.target).parent().parent().parent();
             $.ajax({
-                url: '../php/deleteUsuario.php',
-                method: 'GET',
-                data: {
-                    id: row.attr('data-id-usuario')
-                },
+                url: '../php/Solicitante.php?id='+row.attr('data-id-usuario'),
+                method: 'DELETE',
                 success: ( response ) => {
                     console.log( response );
                     row.remove();
@@ -96,8 +93,8 @@ function createTable(config, data){
             if(row.attr('data-editable') == "true"){
                 let rowFields = row.find('td[data-label]:not(td[data-label=Nickname], td[data-label=ID])');
                 $.ajax({
-                    url: '../php/updateUsuario.php',
-                    method: 'POST',
+                    url: '../php/Solicitante.php',
+                    method: 'PUT',
                     data:{
                         nombre : rowFields[0].innerHTML,
                         apellidoPat : rowFields[1].innerHTML,

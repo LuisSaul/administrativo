@@ -10,7 +10,8 @@
                  s.apellidoMat as 'Apellido Materno',
                  case s.estado_civil 
                     when 0 then 'Soltero'
-                    when 1 then 'Cadado'
+                    when 1 then 'Casado'
+                    when 2 then 'Divorciado'
                  end
                  as 'Estado civil',
                  direccion as 'Dirección',

@@ -36,7 +36,7 @@ function createTable(config, data){
     const headers = Object.keys(data[0]);    
 
     const table = $('<table>',{
-        class: 'table table-sm table-hover',
+        class: 'table table-sm',
         'data-objet': 'Table',
         html: []
     });
@@ -64,7 +64,7 @@ function createTable(config, data){
 
         edit.click( (event) => {
             let row = $(event.target).parent().parent().parent();            
-            let rowFields = row.find('td:not(td[data-label=Nickname], td[data-label=ID])');
+            let rowFields = row.find('td:not(td[data-label=User], td[data-label=ID])');
             let editable = (row.attr('data-editable') == "true");
             row.attr('data-editable', !editable)
             row.toggleClass('editable');
@@ -91,7 +91,7 @@ function createTable(config, data){
         save.click( (event) => {
             let row = $(event.target).parent().parent().parent();
             if(row.attr('data-editable') == "true"){
-                let rowFields = row.find('td[data-label]:not(td[data-label=Nickname], td[data-label=ID])');
+                let rowFields = row.find('td[data-label]:not(td[data-label=User], td[data-label=ID])');
                 $.ajax({
                     url: '../php/Solicitante.php',
                     method: 'PUT',
@@ -134,7 +134,6 @@ function createTable(config, data){
     return table;
 }
 
-
 function createTableUsuarios(config, data){
     const element = $(config.target);    
     const headers = Object.keys(data[0]);    
@@ -169,7 +168,6 @@ function createTableUsuarios(config, data){
     element.empty().append(table);
     return table;
 }
-
 
 function showMsg( id ){
     let element = $('#'+id);

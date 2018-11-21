@@ -53,7 +53,7 @@
                 '$nombre', 
                 '$apellidoPat', 
                 '$apellidoMat', 
-                $estado_civil, 
+                 $estado_civil, 
                 '$direccion', 
                 '$email', 
                 '$telefono', 
@@ -72,14 +72,15 @@
             echo json_encode( query( $conexion, $query ));
         } else {
             $query = "select 
-                        u.id as ID,
-                        u.user as Nickname,
+                        s.id_solicitante as ID,
+                        u.user as User,
                         s.nombre as Nombre,
                         apellidoPat as 'Apellido Paterno',
                         s.apellidoMat as 'Apellido Materno',
                         case s.estado_civil 
                             when 0 then 'Soltero'
                             when 1 then 'Cadado'
+                            when 2 then 'Amargado'
                         end
                         as 'Estado civil',
                         direccion as 'Dirección',
@@ -93,7 +94,6 @@
                     on u.id = s.idUsuario;";
             echo json_encode(query($conexion, $query));
             $conexion->close();
-
         }
     }
 
@@ -101,9 +101,7 @@
         $conexion = connect();
         $id = $_GET['id'];
         $conexion = connect();    
-        $query = "delete from Solicitante where idUsuario = $id;";
-        $conexion->query( $query );
-        $query = "delete from Usuario where id = $id;";
+        $query = "delete from Solicitante where id_solicitante = $id;";
         $conexion->query( $query );
         $conexion->close();
 

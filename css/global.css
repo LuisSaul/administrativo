@@ -2,6 +2,30 @@ margin-auto{
     margin:auto;
 }
 
-div{
-    --border: 1px solid gray;
+body{
+    background: url('../img/office.jpg');
+}
+
+
+.title{
+    background: white;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 2px 7px 20px 1px black;
+}
+
+.subtitle{
+    background: white;
+    margin: 0px;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 2px 7px 20px 1px black;
+}
+
+.white-bg {
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 2px 7px 20px 1px black;
 }

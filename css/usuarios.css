@@ -1,7 +1,13 @@
+tr{
+    transition: all 200ms ease;
+}
+
 tr.editable{
-    background: #eee;
+    background: #0103135e;    
+    font-weight: bold;
 }
 
 th::focus{
     border: 2px solid #217ff345;
 }
+

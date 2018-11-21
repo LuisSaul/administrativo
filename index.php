@@ -2,6 +2,7 @@
 
 <head>
   <title>Administrativos</title>
+  <link rel="icon" href="./img/icon.png">
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 
   <!-- CSS FILES -->
@@ -13,7 +14,7 @@
 <body class="mb-5 pb-5">  
   <div class="container-fluid">
     <div class="row text-center login">
-      <div class="col-5 text-center">
+      <div class="col-3 text-center">
         <h4> Administradores </h4>
         <div class="form-group">
           <label>User:</label>
@@ -26,17 +27,15 @@
         <div id="error" class="alert alert-danger" role="alert" hidden>
           Usuario o contraseña incorrecta
         </div>
-        <button id="login" type="submit" class="btn btn-primary">Log in</button>
+        <button id="login" type="submit" class="btn btn-primary">Iniciar sesión</button>
       </div>
     </div>
   </div>
     
-  <!-- JS SCRIPTS -->
   <script src="./lib/popper.js"></script>
   <script src="./lib/jquery.js"></script>
   <script src="./lib/bootstrap.js"></script>
   
-  <!-- Own JS -->
   <script src="./js/index.js"></script>
 </body>
 </html>

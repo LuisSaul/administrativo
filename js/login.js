@@ -15,7 +15,10 @@ $('#login').click(() => {
             console.log( response )
 
             if( response == null ){
-                $('#error').attr('hidden', false);
+                $('#error').toggle('hidden');
+                setTimeout(( ) => {
+                    $('#error').toggle('hidden');
+                }, 3000);
             } else  if( response.type == "0"){
                 window.open(`./view/administrador.php?id=${response.id}`, '_self');
             } else {

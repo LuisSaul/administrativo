@@ -2,6 +2,8 @@
 <head>
     <meta charset="UTF-8">
     <title> Administrativos </title>
+    <link rel="icon" href="../img/icon.png">      
+
     <link rel="stylesheet" href="../lib/bootstrap.css">
     <link rel="stylesheet" href="../lib/animate.css">
     <link rel="stylesheet" href="../css/global.css">

@@ -6,7 +6,7 @@
         $host = "localhost";
         $user = "saul";
         $password = "1234";
-        $database = "Administrativos";
+        $database = "Solicitantantes";
         
         $conexion = new mysqli($host, $user, $password, $database);
         if($conexion->connect_error){

@@ -4,7 +4,6 @@
     $conexion = connect();
     $query = "select 
                 s.id_solicitante as ID,
-                 u.user as Nickname,
                  s.nombre as Nombre,
                  apellidoPat as 'Apellido Paterno',
                  s.apellidoMat as 'Apellido Materno',
@@ -17,7 +16,8 @@
                  direccion as 'Dirección',
                  email as 'Email',
                  telefono as 'Teléfono',
-                 fecha_registro as Fecha
+                 fecha_registro as Fecha,
+                 u.user as RH
             from 
                 Usuario u 
             join 

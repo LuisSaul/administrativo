@@ -23,11 +23,11 @@ let fechaRegistro = $('#fecha_registro');
 let telefono = $('#telefono');
 let button = $('button#insertarSolicitante');
 let valores = $('#valido');
-*/
+
 const erNombre = /^([A-ZÁÉÍÓÚÑ]{1}[a-zñáéíóúñ]+[\s]*)+$/;
 const erDir = /^([A-Za-zÁÉÍÓÚñáéíóú]+[\s]*)([#]{0,1}[0-9]+[A-Z]*)+$/;
 const erEmail = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-const tel = /^[0-9]{7,12}$/;
+const tel = /^[0-9]{7,12}$/;*/
 
 $.ajax({
     url: '../php/getUsuarios.php',
@@ -99,14 +99,14 @@ function createTable(config, data){
 
             const user = {
                 id: row.find("td").eq(0).html(),
-                nombre: row.find("td").eq(2).html(),
-                apellidoPat: row.find("td").eq(3).html(),
-                apellidoMat: row.find("td").eq(4).html(),
-                estado_civil: row.find("td").eq(5).html(),
-                direccion: row.find("td").eq(6).html(),
-                email: row.find("td").eq(7).html(),
-                telefono: row.find("td").eq(9).html(),
-                fecha: row.find("td").eq(8).html()
+                nombre: row.find("td").eq(1).html(),
+                apellidoPat: row.find("td").eq(2).html(),
+                apellidoMat: row.find("td").eq(3).html(),
+                estado_civil: row.find("td").eq(4).html(),
+                direccion: row.find("td").eq(5).html(),
+                email: row.find("td").eq(6).html(),
+                telefono: row.find("td").eq(8).html(),
+                fecha: row.find("td").eq(7).html()
             } 
             $('#idSolicitanteM').val(user.id);
             $('#nombreM').val(user.nombre);
@@ -186,10 +186,10 @@ function createTable(config, data){
 
     modificar.click( (event) => {
         if (nombreM.val() != "" && apellidoPatM.val() != "" && apellidoMatM.val() != "" && direccionM.val() != "" && emailM.val() != "" && telefonoM.val() != "") {
-            /*const erNombre = /^([A-ZÁÉÍÓÚÑ]{1}[a-zñáéíóúñ]+[\s]*)+$/;
+            const erNombre = /^([A-ZÁÉÍÓÚÑ]{1}[a-zñáéíóúñ]+[\s]*)+$/;
             const erDir = /^([A-Za-zÁÉÍÓÚñáéíóú]+[\s]*)([#]{0,1}[0-9]+[A-Z]*)+$/;
             const erEmail = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-            const tel = /^[0-9]{7,12}$/;*/
+            const tel = /^[0-9]{7,12}$/;
             if (erNombre.test(nombreM.val()) && erNombre.test(apellidoPatM.val()) && erNombre.test(apellidoMatM.val()) 
                 && erDir.test(direccionM.val()) && erEmail.test(emailM.val()) &&tel.test(telefonoM.val())) {
                 $.ajax({

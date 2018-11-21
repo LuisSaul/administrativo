@@ -37,6 +37,15 @@ button.click((event) => {
                     console.log( response );
                     valores.text("Registro exitoso");
                     console.log("Registro exitoso");
+                    nombre.val("");
+                    apellidoPat.val("");
+                    apellidoMat.val("");
+                    estadoCivil.val("");
+                    direccion.val("");
+                    email.val("");
+                    fechaRegistro.val("");
+                    telefono.val("");
+                    $('#idUsr').val("");
                 },
                 failure: (error) => {
 

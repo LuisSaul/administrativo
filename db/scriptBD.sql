@@ -1,6 +1,6 @@
-drop database if exists Administrativos;
-create database Administrativos;
-use Administrativos;
+drop database if exists Solicitantantes;
+create database Solicitantantes;
+use Solicitantantes;
 
 create table Usuario(
 	id int primary key auto_increment,

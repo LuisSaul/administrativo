@@ -18,14 +18,14 @@
           </button>
         </caption>
         <button id="mod-account" style="display:none;" data-toggle="modal" data-target="#updateAccount"></button>
+        </div>
         <div class="container-fluid">
-        <div class="row mb-5">
-          <div class="col-6 offset-1">
+        <div class="row justify-content-center">
+          <div class="col-11">
           <div id="tabla-usuarios"></div>
           </div>
         </div>
       </div>
-      </div> 
       
       
 

@@ -17,7 +17,7 @@ $('#login').click(() => {
             if( response == null ){
                 $('#error').attr('hidden', false);
             } else  if( response.type == "0"){
-                window.open('./view/usuarios.php', '_self');
+                window.open(`./view/administrador.php?id=${response.id}`, '_self');
             } else {
                 window.open(`./view/formulario.php?id=${response.id}`, '_self');
             }

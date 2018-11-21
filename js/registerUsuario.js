@@ -1,4 +1,4 @@
-let btn = $('#btn-nuevo-usuario');
+let btn = $('button#insertarUsuario');
 let user = $('input[name=user]');
 let password  = $('input[name=password]');
 

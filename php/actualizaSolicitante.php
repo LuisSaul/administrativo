@@ -8,6 +8,7 @@
     $estado_civil = $_POST['estado_civil'];
     $direccion = $_POST['direccion'];
     $email = $_POST['email'];
+    $fecha_registro = $_POST['fecha_registro'];
     $telefono = $_POST['telefono'];
     $id = $_POST['id'];
 
@@ -20,8 +21,10 @@
         estado_civil = '$estado_civil',
         direccion = '$direccion',
         email = '$email',
-        telefono = '$telefono'        
-    where idUsuario = $id;";
+        fecha_registro = '$fecha_registro',
+        telefono = '$telefono'
+
+    where id_solicitante = $id;";
 
     echo json_encode($conexion->query( $query ));
     

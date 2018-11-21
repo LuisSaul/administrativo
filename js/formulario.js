@@ -1,13 +1,13 @@
-
+let idUsr = $('#idUsr');
 let nombre = $('#nombre');
 let apellidoPat = $('#apellidoPat');
 let apellidoMat = $('#apellidoMat');
 let estadoCivil = $('#estado_civil');
-let direccion = $('#direccion');
-let email = $('#email');
+let direccion = $('#dir');
+let email = $('#correo');
 let fechaRegistro = $('#fecha_registro');
 let telefono = $('#telefono');
-let button = $('button#alta');
+let button = $('button#insertarSolicitante');
 let valores = $('#valido');
 
 
@@ -31,7 +31,7 @@ button.click((event) => {
                     email: email.val(),
                     fecha_registro: fechaRegistro.val(),
                     telefono: telefono.val(),
-                    id: $('form').attr('data-usuario')
+                    id: idUsr.val()
                 },
                 success: ( response ) => {
                     console.log( response );

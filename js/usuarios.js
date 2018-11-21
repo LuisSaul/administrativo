@@ -12,6 +12,22 @@ let fechaRegistroM = $('#fecha_registroM');
 let telefonoM = $('#telefonoM');
 let modificar = $('button#actualizarSolicitante');
 let eliminar = $('button#eliminarSolicitante');
+/*
+let nombre = $('#nombre');
+let apellidoPat = $('#apellidoPat');
+let apellidoMat = $('#apellidoMat');
+let estadoCivil = $('#estado_civil');
+let direccion = $('#dir');
+let email = $('#correo');
+let fechaRegistro = $('#fecha_registro');
+let telefono = $('#telefono');
+let button = $('button#insertarSolicitante');
+let valores = $('#valido');
+*/
+const erNombre = /^([A-ZÁÉÍÓÚÑ]{1}[a-zñáéíóúñ]+[\s]*)+$/;
+const erDir = /^([A-Za-zÁÉÍÓÚñáéíóú]+[\s]*)([#]{0,1}[0-9]+[A-Z]*)+$/;
+const erEmail = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+const tel = /^[0-9]{7,12}$/;
 
 $.ajax({
     url: '../php/getUsuarios.php',
@@ -45,7 +61,7 @@ function createTable(config, data){
     const headers = Object.keys(data[0]);    
 
     const table = $('<table>',{
-        class: 'table',
+        class: 'table table-sm table-hover',
         'data-objet': 'Table',
         html: []
     });
@@ -170,10 +186,10 @@ function createTable(config, data){
 
     modificar.click( (event) => {
         if (nombreM.val() != "" && apellidoPatM.val() != "" && apellidoMatM.val() != "" && direccionM.val() != "" && emailM.val() != "" && telefonoM.val() != "") {
-            const erNombre = /^([A-ZÁÉÍÓÚÑ]{1}[a-zñáéíóúñ]+[\s]*)+$/;
+            /*const erNombre = /^([A-ZÁÉÍÓÚÑ]{1}[a-zñáéíóúñ]+[\s]*)+$/;
             const erDir = /^([A-Za-zÁÉÍÓÚñáéíóú]+[\s]*)([#]{0,1}[0-9]+[A-Z]*)+$/;
             const erEmail = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-            const tel = /^[0-9]{7,12}$/;
+            const tel = /^[0-9]{7,12}$/;*/
             if (erNombre.test(nombreM.val()) && erNombre.test(apellidoPatM.val()) && erNombre.test(apellidoMatM.val()) 
                 && erDir.test(direccionM.val()) && erEmail.test(emailM.val()) &&tel.test(telefonoM.val())) {
                 $.ajax({
@@ -279,7 +295,7 @@ function createTableUsuarios(config, data){
     const headers = Object.keys(data[0]);    
 
     const table = $('<table>',{
-        class: 'table',
+        class: 'table table-sm table-hover',
         'data-objet': 'Table',
         html: []
     });
@@ -318,3 +334,66 @@ function showMsg( id ){
         element.toggle('hidden');
     }, 3000);
 }
+
+            
+/*
+nombre.focusout(function(){
+    if(erNombre.test($(this).val())){
+        $(this).removeClass("is-invalid");
+        $(this).addClass("is-valid");
+    }else{
+        $(this).removeClass("is-valid");
+        $(this).addClass("is-invalid");
+    }
+});
+
+apellidoPat.focusout(function(){
+    if(erNombre.test($(this).val())){
+        $(this).removeClass("is-invalid");
+        $(this).addClass("is-valid");
+    }else{
+        $(this).removeClass("is-valid");
+        $(this).addClass("is-invalid");
+    }
+});
+
+apellidoMat.focusout(function(){
+    if(erNombre.test($(this).val())){
+        $(this).removeClass("is-invalid");
+        $(this).addClass("is-valid");
+    }else{
+        $(this).removeClass("is-valid");
+        $(this).addClass("is-invalid");
+    }
+});
+
+direccion.focusout(function(){
+    if(erDir.test($(this).val())){
+        $(this).removeClass("is-invalid");
+        $(this).addClass("is-valid");
+    }else{
+        $(this).removeClass("is-valid");
+        $(this).addClass("is-invalid");
+    }
+});
+
+
+email.focusout(function(){
+    if(erEmail.test($(this).val())){
+        $(this).removeClass("is-invalid");
+        $(this).addClass("is-valid");
+    }else{
+        $(this).removeClass("is-valid");
+        $(this).addClass("is-invalid");
+    }
+});
+
+telefono.focusout(function(){
+    if(tel.test($(this).val())){
+        $(this).removeClass("is-invalid");
+        $(this).addClass("is-valid");
+    }else{
+        $(this).removeClass("is-valid");
+        $(this).addClass("is-invalid");
+    }
+});*/

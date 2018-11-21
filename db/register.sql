@@ -1,15 +1,11 @@
 use Administrativos;
 
-insert into Usuario values (null, 'admin', 'admin', 0),
-                            (null, 'juan_alberto', '123', 1),
-                            (null, 'jose_julian', '123', 1),
+insert into Usuario values (null, 'saul123', 'admin', 0),
+                            (null, 'luis123', '123', 1),
                             (null, 'petronilo', '123', 1),
-                            (null, 'ideonicio', '123', 1),
-                            (null, 'jose_jose', '123', 1),
-                            (null, 'el_don_pepe', '123', 1),
-                            (null, 'saul_ornelas', '123' ,1);
+                            (null, 'plutarco', '123', 1);
 
 insert into Solicitante 
-    value (null,'Juan Alberto', 'Valtierra', 'Hernandez', 0, 'caracas #114, Venezuela', 'juan_alberto@hotmail.com', '4774667652', '2018-11-2', 2),
-    (null,'José Julian', 'Gomez', 'Castro', 0, 'carmona #314, Puerto Rico', 'jose_julian@hotmail.com', '4774667652', '2018-11-2', 3),
-    (null,'Petronilo', 'Sara', 'Goza', 0, 'los angeles #132, CA', 'petri@hotmail.com', '4774667652', '2018-11-2', 4);
+    value (null,'Luis Saul', 'Ornelas', 'Pérez', 0, 'barcenas #602', 'saulop97@outlook.com', '4773548504', '2018-10-10', 0),
+    (null,'Plutarco', 'Elias', 'Calles', 1, 'zacatecas #1015', 'plutarquillo@gmail.com', '4771234567', '2018-11-1', 1),
+    (null,'Florentino', 'Rockefeller', 'Watzon', 2, 'las joyas #495', 'florentino1515@iteon.edu.mx', '477', '2018-11-3', 2);

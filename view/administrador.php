@@ -67,10 +67,28 @@
                 <input type="text" name="" id="idUsr" class="form-control" value="<?php echo $_GET['id'];?>" readonly>
                 <label>Nombre</label>
                 <input type="text" name="" id="nombre" class="form-control">
+                <div class="valid-feedback">
+                    Nombre correcto
+                </div>
+                <div class="invalid-feedback">
+                    EL nombre no debe de llevar números y debe de iniciar con mayúscula.
+                </div>
                 <label>Apellido paterno</label>
                 <input type="text" name="" id="apellidoPat" class="form-control">
+                <div class="valid-feedback">
+                    Apellido correcto
+                </div>
+                <div class="invalid-feedback">
+                    EL Apellido no debe de llevar números y debe de iniciar con mayúscula.
+                </div>
                 <label>Apellido materno</label>
                 <input type="text" name="" id="apellidoMat" class="form-control">
+                <div class="valid-feedback">
+                    Apellido correcto
+                </div>
+                <div class="invalid-feedback">
+                    EL Apellido no debe de llevar números y debe de iniciar con mayúscula.
+                </div>
                 <label>Estado civil</label>
                <select id="estado_civil" class="form-control">
                   <option value="0">Soltero</option>
@@ -79,12 +97,30 @@
                </select>
                 <label>Dirección</label>
                 <input type="text" id="dir" class="form-control">
+                <div class="valid-feedback">
+                    Dirección correcta
+                </div>
+                <div class="invalid-feedback">
+                    Dirección incorrecta
+                </div>
                 <label>E-mail</label>
                 <input type="text" id="correo" class="form-control">
+                <div class="valid-feedback">
+                    E-mail correcto
+                </div>
+                <div class="invalid-feedback">
+                    E-mail incorrecto
+                </div>
                 <label>Fecha de registro</label>
                 <input type="date" id="fecha_registro" class="form-control">
                 <label>Teléfono</label>
                 <input type="text" id="telefono" class="form-control">
+                <div class="valid-feedback">
+                    Teléfono correcto
+                </div>
+                <div class="invalid-feedback">
+                    Teléfono incorrecto
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-info" id="insertarSolicitante">Insertar</button>

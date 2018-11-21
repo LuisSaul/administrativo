@@ -1,4 +1,4 @@
-let idUsr = $('#idUsr');
+
 let nombre = $('#nombre');
 let apellidoPat = $('#apellidoPat');
 let apellidoMat = $('#apellidoMat');
@@ -31,7 +31,7 @@ button.click((event) => {
                     email: email.val(),
                     fecha_registro: fechaRegistro.val(),
                     telefono: telefono.val(),
-                    id: idUsr.val()
+                    id: $('#idUsr').val()
                 },
                 success: ( response ) => {
                     console.log( response );
@@ -74,7 +74,7 @@ function createTableUsuarios(config, data){
     const headers = Object.keys(data[0]);    
 
     const table = $('<table>',{
-        class: 'table',
+        class: 'table table-sm table-hover',
         'data-objet': 'Table',
         html: []
     });

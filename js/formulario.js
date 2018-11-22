@@ -8,8 +8,19 @@ let email = $('#correo');
 let fechaRegistro = $('#fecha_registro');
 let telefono = $('#telefono');
 let button = $('button#insertarSolicitante');
-let valores = $('#valido');
 
+$.ajax({
+    url: '../php/obtenerSolicitantes.php',
+    dataType: 'json',
+    success: ( response ) => {
+        console.log( response );
+        if( response.length > 0 ){
+            createTableUsuarios({target: '#tabla-usuarios'}, response)
+        }
+    }, failure: ( error ) => {
+        console.error('error inesperado');
+    }
+});
 
 button.click((event) => {
     if (nombre.val() != "" && apellidoPat.val() != "" && apellidoMat.val() != "" && direccion.val() != "" && email.val() != "" && telefono.val() != "") {
@@ -20,7 +31,7 @@ button.click((event) => {
         if (erNombre.test(nombre.val()) && erNombre.test(apellidoPat.val()) && erNombre.test(apellidoMat.val()) 
             && erDir.test(direccion.val()) && erEmail.test(email.val()) &&tel.test(telefono.val())) {
             $.ajax({
-                url: '../php/registerSolicitud.php',
+                url: '../php/registrarSolicitud.php',
                 method: 'POST',
                 data: {
                     nombre: nombre.val(),
@@ -35,7 +46,6 @@ button.click((event) => {
                 },
                 success: ( response ) => {
                     console.log( response );
-                    valores.text("Registro exitoso");
                     console.log("Registro exitoso");
                     nombre.val("");
                     apellidoPat.val("");
@@ -52,31 +62,12 @@ button.click((event) => {
                 }
             })
         } else {
-            valores.text("Valores invalidos");
             console.log("Valores invalidos");
         }
     } else {
-        valores.text("Datos incompletos");
         console.log("Datos incompletos");
     }
 });
-
-
-
-$.ajax({
-    url: '../php/getUsuarios.php',
-    dataType: 'json',
-    success: ( response ) => {
-        console.log( response );
-        if( response.length > 0 ){
-            createTableUsuarios({target: '#tabla-usuarios'}, response)
-        }
-    }, failure: ( error ) => {
-        console.error('error inesperado');
-    }
-});
-
-
 
 function createTableUsuarios(config, data){
     const element = $(config.target);    

@@ -23,7 +23,7 @@
           <input class="form-control" name="password" type="password">
         </div>
         <div id="error" class="alert alert-danger" role="alert" style="display:none;">
-          Usuario o contraseña incorrecta
+          <h6>Usuario o contraseña incorrecta</h6>
         </div>
         <button id="login" type="submit" class="btn btn-primary">¡Comencemos!</button>
       </div>

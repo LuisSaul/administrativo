@@ -22,7 +22,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="administrador.php?id=<?php echo $_GET['id'];?>">Solicitantes</a>
+                <a class="nav-link" href="solicitantes.php?id=<?php echo $_GET['id'];?>">Solicitantes</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="usuarios.php?id=<?php echo $_GET['id'];?>">Usuarios</a>
@@ -75,7 +75,6 @@
     <script src="../lib/jquery.js"></script>
     <script src="../lib/bootstrap.js"></script>
     <script src="../js/usuarios.js"></script>
-    <script src="../js/registerUsuario.js"></script>
 </body>
 
 </html>

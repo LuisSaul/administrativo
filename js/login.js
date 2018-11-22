@@ -20,7 +20,7 @@ $('#login').click(() => {
                     $('#error').toggle('hidden');
                 }, 3000);
             } else  if( response.type == "0"){
-                window.open(`./view/administrador.php?id=${response.id}`, '_self');
+                window.open(`./view/solicitantes.php?id=${response.id}`, '_self');
             } else {
                 window.open(`./view/formulario.php?id=${response.id}`, '_self');
             }

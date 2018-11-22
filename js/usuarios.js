@@ -40,7 +40,7 @@ function createTableUsuarios(config, data) {
         html: []
     });
     const th = $('<thead>', {
-        class: 'thead-dark',
+        class: '',
         html: []
     });
     const tb = $('<tbody>');

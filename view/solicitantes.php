@@ -6,8 +6,8 @@
       <link rel="icon" href="../img/icon.png">      
       <link rel="stylesheet" href="../lib/bootstrap.css">
       <link rel="stylesheet" href="../lib/animate.css">
-      <!--<link rel="stylesheet" href="../css/global.css">
-    <link rel="stylesheet" href="../css/usuarios.css">-->
+      <link rel="stylesheet" href="../css/global.css">
+      <link rel="stylesheet" href="../css/administrador.css">
    </head>
    <body>
    <div class="row justify-content-center">
@@ -33,7 +33,7 @@
     <div class="row justify-content-left">
         <!--Botón para agregar usuario-->
         <caption>
-          <button class="btn btn-info btn-add" data-toggle="modal" data-target="#modalAdd" style="margin-top: 50px;margin-left: 80px;margin-bottom: 50px;">
+          <button class="btn btn-info boton-agregar" data-toggle="modal" data-target="#modalAdd">
             Agregar nuevo solicitante
           </button>
         </caption>

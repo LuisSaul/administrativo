@@ -7,11 +7,10 @@
     <link rel="stylesheet" href="../lib/bootstrap.css">
     <link rel="stylesheet" href="../lib/animate.css">
     <link rel="stylesheet" href="../css/global.css">
-    <link rel="stylesheet" href="../css/usuarios.css">
+    <link rel="stylesheet" href="../css/administrador.css">
 </head>
 
-<body class="mb-5 pb-5">
-        <div class="container-fluid mt-3">
+<body>
         <div class="row justify-content-center">
         <div class="col-11">
         
@@ -33,20 +32,16 @@
         </div>
         </div> 
         <div class="row justify-content-left">
-                    <button class="btn btn-info" data-toggle="modal" data-target="#modalAdd" style="margin-top: 50px;margin-left: 80px;margin-bottom: 50px;">
+                    <button class="btn btn-info boton-agregar" data-toggle="modal" data-target="#modalAdd">
                      Registrar usuario </button>
                 
             </div>
+        
         <div class="row justify-content-center">
-        <div class="col-11">
-        <div class="row">
-            <div class="col" id="table-container-users">
+            <div class="col-4" id="table-container-users">
                 <!-- Table -->
             </div>
         </div>
-        </div>
-        </div>
-    </div>
     <div class="modal fade" id="modalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">

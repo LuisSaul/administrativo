@@ -13,7 +13,7 @@
    <div class="row justify-content-left">
         <!--Botón para agregar usuario-->
         <caption>
-          <button class="btn btn-info btn-add" data-toggle="modal" data-target="#modalAdd" style="margin-top: 50px;margin-left: 130px;margin-bottom: 50px;">
+          <button class="btn btn-info boton-agregar" data-toggle="modal" data-target="#modalAdd" boton-agregar>
             Agregar nuevo solicitante
           </button>
         </caption>

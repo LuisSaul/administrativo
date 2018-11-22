@@ -1,3 +1,28 @@
+a:hover {
+    color: #467474a8;
+}
+
+th{
+    border-left: white;
+    border-right: white;
+    background: #0f6f6fb2;
+}
+
+thead{
+    background: #539c8eb0;
+}
+
+
+body{
+    background: #0f6f6f0c;
+}
+
+.boton-agregar{
+    margin-top: 50px;
+    margin-left: 80px;
+    margin-bottom: 50px;
+}
+
 margin-auto{
     margin:auto;
 }

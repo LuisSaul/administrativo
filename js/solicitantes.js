@@ -1,7 +1,8 @@
 
 let contenedor = $('#table-container');
 
-//Variables de los input de el modal de insertar solicitante
+//Variables de los input del modal de insertar solicitante
+let idUsuario = $('#idUsr');
 let nombre = $('#nombre');
 let apellidoPat = $('#apellidoPat');
 let apellidoMat = $('#apellidoMat');
@@ -12,7 +13,7 @@ let fechaRegistro = $('#fecha_registro');
 let telefono = $('#telefono');
 let insertar = $('button#insertarSolicitante');
 
-//Variables de los input de el modal de modificar solicitante
+//Variables de los input del modal de modificar solicitante
 let idSolicitanteM = $('#idSolicitanteM');
 let nombreM = $('#nombreM');
 let apellidoPatM = $('#apellidoPatM');
@@ -22,8 +23,15 @@ let direccionM = $('#dirM');
 let emailM = $('#correoM');
 let fechaRegistroM = $('#fecha_registroM');
 let telefonoM = $('#telefonoM');
+let modSolicitante = $('#mod-solicitante');
 let modificar = $('#actualizarSolicitante');
 let eliminar = $('button#eliminarSolicitante');
+
+//Expresiones regualres para la validación de los campos de texto
+const erNombre = /^([A-ZÁÉÍÓÚÑ]{1}[a-zñáéíóúñ]+[\s]*)+$/;
+const erDir = /^([A-Za-zÁÉÍÓÚñáéíóú]+[\s]*)([#]{0,1}[0-9]+[A-Z]*)+$/;
+const erEmail = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+const tel = /^[0-9]{7,12}$/;
 
 //Instrucción ajax para obtener el registro de todos los solicitantes
 $.ajax({
@@ -41,10 +49,7 @@ $.ajax({
 
 insertar.click((event) => {
     if (nombre.val() != "" && apellidoPat.val() != "" && apellidoMat.val() != "" && direccion.val() != "" && email.val() != "" && telefono.val() != "") {
-        const erNombre = /^([A-ZÁÉÍÓÚÑ]{1}[a-zñáéíóúñ]+[\s]*)+$/;
-        const erDir = /^([A-Za-zÁÉÍÓÚñáéíóú]+[\s]*)([#]{0,1}[0-9]+[A-Z]*)+$/;
-        const erEmail = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-        const tel = /^[0-9]{7,12}$/;
+        
         if (erNombre.test(nombre.val()) && erNombre.test(apellidoPat.val()) && erNombre.test(apellidoMat.val()) 
             && erDir.test(direccion.val()) && erEmail.test(email.val()) &&tel.test(telefono.val())) {
             $.ajax({
@@ -59,7 +64,7 @@ insertar.click((event) => {
                     email: email.val(),
                     fecha_registro: fechaRegistro.val(),
                     telefono: telefono.val(),
-                    id: $('#idUsr').val()
+                    id: idUsuario.val()
                 },
                 success: ( response ) => {
                     console.log( response );
@@ -72,7 +77,7 @@ insertar.click((event) => {
                     email.val("");
                     fechaRegistro.val("");
                     telefono.val("");
-                    $('#idUsr').val("");
+                    idUsuario.val("");
                 },
                 failure: (error) => {
 
@@ -88,10 +93,7 @@ insertar.click((event) => {
 
 modificar.click((event) => {
     if (nombreM.val() != "" && apellidoPatM.val() != "" && apellidoMatM.val() != "" && direccionM.val() != "" && emailM.val() != "" && telefonoM.val() != "") {
-        const erNombre = /^([A-ZÁÉÍÓÚÑ]{1}[a-zñáéíóúñ]+[\s]*)+$/;
-        const erDir = /^([A-Za-zÁÉÍÓÚñáéíóú]+[\s]*)([#]{0,1}[0-9]+[A-Z]*)+$/;
-        const erEmail = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-        const tel = /^[0-9]{7,12}$/;
+
         if (erNombre.test(nombreM.val()) && erNombre.test(apellidoPatM.val()) && erNombre.test(apellidoMatM.val())
             && erDir.test(direccionM.val()) && erEmail.test(emailM.val()) && tel.test(telefonoM.val())) {
             $.ajax({
@@ -152,7 +154,7 @@ function createTable(config, data) {
         html: []
     });
     const th = $('<thead>', {
-        class: 'thead-dark',
+        class: '',
         html: []
     });
     const tb = $('<tbody>');
@@ -185,22 +187,22 @@ function createTable(config, data) {
                 telefono: row.find("td").eq(8).html(),
                 fecha: row.find("td").eq(7).html()
             }
-            $('#idSolicitanteM').val(user.id);
-            $('#nombreM').val(user.nombre);
-            $('#apellidoPatM').val(user.apellidoPat);
-            $('#apellidoMatM').val(user.apellidoMat);
+            idSolicitanteM.val(user.id);
+            nombreM.val(user.nombre);
+            apellidoPatM.val(user.apellidoPat);
+            apellidoMatM.val(user.apellidoMat);
             if (user.estado_civil == "Soltero") {
-                $('#estado_civilM').val(0);
+                estadoCivilM.val(0);
             } else if (user.estado_civil == "Casado") {
-                $('#estado_civilM').val(1);
+                estadoCivilM.val(1);
             } else if (user.estado_civil == "Divorciado") {
-                $('#estado_civilM').val(2);
+                estadoCivilM.val(2);
             }
-            $('#dirM').val(user.direccion);
-            $('#correoM').val(user.email);
-            $('#fecha_registroM').val(user.telefono);
-            $('#telefonoM').val(user.fecha);
-            $('#mod-solicitante').click();
+            direccionM.val(user.direccion);
+            emailM.val(user.email);
+            fechaRegistroM.val(user.telefono);
+            telefonoM.val(user.fecha);
+            modSolicitante.click();
         });
 
         tr.append($("<td>", {
@@ -218,7 +220,7 @@ function createTable(config, data) {
     return table;
 }
 
-
+/*
 function createTableUsuarios(config, data) {
     const element = $(config.target);
     const headers = Object.keys(data[0]);
@@ -229,7 +231,7 @@ function createTableUsuarios(config, data) {
         html: []
     });
     const th = $('<thead>', {
-        class: 'thead-dark',
+        class: '',
         html: []
     });
     const tb = $('<tbody>');
@@ -252,7 +254,7 @@ function createTableUsuarios(config, data) {
     table.append(th).append(tb);
     element.empty().append(table);
     return table;
-}
+}*/
 
 
 function showMsg(id) {

@@ -5,6 +5,7 @@
     $nombre = $_POST['nombre'];
     $apellidoPat = $_POST['apellidoPat'];
     $apellidoMat = $_POST['apellidoMat'];
+    $fecha_nacimiento = $_POST['fecha_nacimiento'];
     $estado_civil = $_POST['estado_civil'];
     $direccion = $_POST['direccion'];
     $email = $_POST['email'];
@@ -18,7 +19,8 @@
             null,
             '$nombre', 
             '$apellidoPat', 
-            '$apellidoMat', 
+            '$apellidoMat',
+            '$fecha_nacimiento',
             $estado_civil, 
             '$direccion', 
             '$email', 

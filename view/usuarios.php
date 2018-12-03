@@ -1,7 +1,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title> Administrativos </title>
+    <title> Usuarios </title>
     <link rel="icon" href="../img/icon.png">      
 
     <link rel="stylesheet" href="../lib/bootstrap.css">
@@ -26,6 +26,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="usuarios.php?id=<?php echo $_GET['id'];?>">Usuarios</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../index.php">Salir</a>
+            </li>
             </ul>
         </div>
         </nav>
@@ -47,7 +50,7 @@
             <div class="modal-content">
             <div class="modal-header">
             <h4 class="modal-title" id="myModalLabel">Ingresar datos</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" id="cerrarModalAdd" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
                 <label>Nombre de usuario</label>
@@ -55,10 +58,6 @@
                 <label>Contraseña</label>
                 <input type="text" name="password" class="form-control">
                 <label>Tipo de usuario</label>
-               <select id="privilegios" class="form-control">
-                  <option value="0">Administrador</option>
-                  <option value="1">Usuario</option>
-               </select>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-info" id="insertarUsuario">Insertar</button>

@@ -7,6 +7,7 @@
                  s.nombre as Nombre,
                  apellidoPat as 'Apellido Paterno',
                  s.apellidoMat as 'Apellido Materno',
+                 s.fecha_nacimiento as 'Fecha de nacimiento',
                  case s.estado_civil 
                     when 0 then 'Soltero'
                     when 1 then 'Casado'
@@ -22,7 +23,8 @@
                 Usuario u 
             join 
                 Solicitante s 
-            on u.id = s.idUsuario;";
+            on u.id = s.idUsuario
+            order by Nombre;";
 
     echo json_encode(query($conexion, $query));
     $conexion->close();

@@ -1,34 +1,24 @@
 let btn = $('button#insertarUsuario');
 let user = $('input[name=user]');
 let password  = $('input[name=password]');
+let cerrarModalAdd = $('button#cerrarModalAdd');
 
-function showSuccess(){
-    $('div#success').attr('hidden', false)
-    setInterval(() => {
-        $('div#success').attr('hidden', true)
-    }, 3000);
-}
+cargarTabla();
 
-function showError() {
-    $('#error').attr('hidden', false)
-    setInterval(() => {
-        $('#error').attr('hidden', true)
-    }, 3000);
-}
-
-
-$.ajax({
-    url: '../php/obtenerUsuario.php',
-    dataType: 'json',
-    success: (response) => {
-        console.log(response);
-        if (response.length > 0) {
-            createTableUsuarios({ target: '#table-container-users' }, response)
+function cargarTabla(){
+    $.ajax({
+        url: '../php/obtenerUsuario.php',
+        dataType: 'json',
+        success: (response) => {
+            console.log(response);
+            if (response.length > 0) {
+                createTableUsuarios({ target: '#table-container-users' }, response)
+            }
+        }, failure: (error) => {
+            console.error('error inesperado');
         }
-    }, failure: (error) => {
-        console.error('error inesperado');
-    }
-});
+    });
+}
 
 function createTableUsuarios(config, data) {
     const element = $(config.target);
@@ -65,16 +55,6 @@ function createTableUsuarios(config, data) {
     return table;
 }
 
-
-function showMsg(id) {
-    let element = $('#' + id);
-    element.toggle('hidden');
-
-    setTimeout(() => {
-        element.toggle('hidden');
-    }, 3000);
-}
-
 btn.click( ( event ) => {
     $.ajax({
         url: '../php/registrarUsuario.php',
@@ -86,10 +66,11 @@ btn.click( ( event ) => {
         success: ( response ) => {
             user.val('');
             password.val('');
-            showSuccess();           
+            cargarTabla();
+            cerrarModalAdd.click();
         },
         failure: ( error ) => {
-            showError();
+
         }
     });
 });

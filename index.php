@@ -1,7 +1,7 @@
 <html>
 
 <head>
-  <title>Administrativos</title>
+  <title>Inicio de sesión</title>
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
   <link rel="icon" href="img/icon.png">      
   <link rel="stylesheet" href="lib/bootstrap.css">
@@ -13,7 +13,7 @@
   <div class="container-fluid">
     <div class="row content-form">
       <div class="col-5 pl-5">
-        <h1 clas=""> Administradores </h1>
+        <h1 clas=""> Iniciar sesión </h1>
         <div class="form-group">
           <label clas="">Usuario:</label>
           <input class="form-control" name="user" type="text">

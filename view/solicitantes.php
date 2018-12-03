@@ -25,6 +25,9 @@
         <li class="nav-item">
             <a class="nav-link" href="usuarios.php?id=<?php echo $_GET['id'];?>">Usuarios</a>
         </li>
+        <li class="nav-item">
+                <a class="nav-link" href="../index.php">Salir</a>
+            </li>
         </ul>
     </div>
     </nav>
@@ -60,7 +63,7 @@
             <div class="modal-content">
             <div class="modal-header">
             <h4 class="modal-title" id="myModalLabel">Ingresar datos</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" id="cerrarModalAdd" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
                 <label>Id de usuario quién registra</label>
@@ -89,6 +92,8 @@
                 <div class="invalid-feedback">
                     EL Apellido no debe de llevar números y debe de iniciar con mayúscula.
                 </div>
+                <label>Fecha de nacimiento</label>
+                <input type="date" id="fecha_nacimiento" min="1973-01-01" max="1998-01-01" class="form-control">
                 <label>Estado civil</label>
                <select id="estado_civil" class="form-control">
                   <option value="0">Soltero</option>
@@ -112,7 +117,7 @@
                     E-mail incorrecto
                 </div>
                 <label>Fecha de registro</label>
-                <input type="date" id="fecha_registro" class="form-control">
+                <input type="date" id="fecha_registro" min="2018-11-03" max="2018-12-03" class="form-control">
                 <label>Teléfono</label>
                 <input type="text" id="telefono" class="form-control">
                 <div class="valid-feedback">
@@ -135,7 +140,7 @@
             <div class="modal-content">
             <div class="modal-header">
             <h4 class="modal-title" id="myModalLabel">Actualizar datos</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" id="cerrarModalUpdate" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
                 <label>Id de solicitante</label>
@@ -146,6 +151,8 @@
                 <input type="text" name="" id="apellidoPatM" class="form-control">
                 <label>Apellido materno</label>
                 <input type="text" name="" id="apellidoMatM" class="form-control">
+                <label>Fecha de nacimiento</label>
+                <input type="date" id="fecha_nacimientoM" min="1973-01-01" max="1998-01-01" class="form-control">
                 <label>Estado civil</label>
                <select id="estado_civilM" class="form-control">
                   <option value="0">Soltero</option>
@@ -157,7 +164,7 @@
                 <label>E-mail</label>
                 <input type="text" id="correoM" class="form-control">
                 <label>Fecha de registro</label>
-                <input type="date" id="fecha_registroM" class="form-control">
+                <input type="date" id="fecha_registroM" min="2018-11-03" max="2018-12-03"  class="form-control">
                 <label>Teléfono</label>
                 <input type="text" id="telefonoM" class="form-control">
             </div>
